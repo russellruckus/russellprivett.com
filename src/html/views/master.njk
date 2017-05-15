@@ -1,0 +1,28 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]> 		   <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+	<head>
+		{% include "partials/meta.njk" %}
+		<link rel="icon" type="img/png" href="img/favicon.ico">
+		<link rel="stylesheet" href="css/main.css">
+		
+		<script src="https://use.typekit.net/pyb3kjy.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		
+	</head>
+	<body>
+		<div class="container">
+			{% include "partials/header.njk" %}
+
+			{% block content %}
+			{% endblock %}
+
+			
+			{% include "partials/analytics.njk" %}
+		</div>
+		<script type="text/javascript" src="js/scripts.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends "master.njk" %}
+
+{% block content %}
+
+	<h1>{{ example_content.title }}</h1>
+	<p>{{ example_content.text }}</p>
+
+	<h2>Next steps</h2>
+	<ol>
+		<li>Initialise your git repository at
+			<a href="http://github.com/presentcompany" target="_blank">Present Company Github</a>.
+		</li>
+		<li>
+			Initialise your local repository and commit your files:
+			<ol>
+				<li>Initialize the local directory as a Git repository with
+					<code>git init</code>
+				</li>
+				<li>Add the files in your new local repository. This stages them for the first commit.
+					<code>git add .</code>
+				</li>
+				<li>Commit the files that you've staged in your local repository.
+					<code>git commit -m "First commit"</code>
+				</li>
+				<li>At the top of your GitHub repository's Quick Setup page, click to copy the remote repository URL</li>
+				<li>In Terminal, add the URL for the remote repository where your local repository will be pushed.
+					<code>git remote add
+						<origin remote repository URL></code>
+					</li>
+					<li>Verify the new remote URL
+						<code>git remote -v</code>
+					</li>
+					<li>Push the changes in your local repository to GitHub.
+						<code>git push -u origin master</code>
+					</li>
+				</ol>
+			</li>
+			<li>Add the repo to
+				<strong>#dev-notifications</strong>
+				in slack</li>
+			<li>Refresh yourself with our
+				<a href="https://github.com/presentcompany/front-end-playbook" target="_blank">PC Front-End Playbook</a>
+			</li>
+			<li>Start building!</li>
+		</ol>
+
+	{% endblock %}

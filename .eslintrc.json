@@ -1,0 +1,21 @@
+{
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true
+      }
+  },
+  "globals": {
+      "__dirname": true
+  },
+  "ignore": ["node_modules/"],
+  "rules": {
+    "no-unused-vars": "off",
+    "linebreak-style": "off",
+    "no-console": "off",
+    "new-cap": "off",
+    "array-callback-return": "off",
+    "no-restricted-syntax": [2, "WithStatement"]
+  }
+}
