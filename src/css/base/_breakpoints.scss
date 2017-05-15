@@ -1,2 +1,9 @@
-$medium: new-breakpoint(max-width $max-width);
-$small: new-breakpoint(max-width 767px);
+// Breakpoints
+ @mixin breakpoint($point) {
+   @if $point == medium {
+     @media (min-width: 37.5em) { @content ; }
+  }
+   @else if $point == small {
+     @media (max-width: 37.5em)  { @content ; }
+  }
+}

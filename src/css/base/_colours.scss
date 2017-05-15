@@ -1,3 +1,10 @@
-$c-black: #000;
+$c-black: #171919;
 $c-white: #fff;
 $c-light-grey: #e6e6e6;
+$c-dark-grey: #373737;
+$c-orange: #FF7F6E;
+
+
+html, body {
+	background-color: $c-orange;
+}

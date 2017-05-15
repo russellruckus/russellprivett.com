@@ -3,10 +3,87 @@ html {
   @include reset-box-model;
 }
 
+$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+  direction: ltr
+);
+
+$mobile: (
+	columns: 4,
+	gutter: 1rem,
+	direction: ltr,
+	media: 800px
+);
+
+// Layout
 .container {
 	width: 100%;
-	max-width: $max-width;
 	margin: 0 auto;
-
 	position: relative;
+}
+
+@include breakpoint(small) {
+
+	header {
+		@include grid-column(12, $neat-grid);
+
+		nav {
+			display: none;
+		}
+	}
+
+	main {
+		@include grid-column(12, $neat-grid);
+
+		ul {
+			width: 100%;
+			margin: 72px 0 0; padding: 0;
+
+			li {
+				width: 100%;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+
+@include breakpoint(medium) {
+
+	.container {
+		max-width: 1180px;
+	}
+
+	header {
+		@include grid-column(3, $neat-grid);
+		position: fixed;
+		bottom: 15.8rem;
+
+		nav {
+			display: block;
+		}
+	}
+
+	main {
+		@include grid-column(9, $neat-grid);
+		@include grid-push(3);
+
+		ul {
+			width: 100%;
+			margin: 40px 0 0; padding: 0;
+			list-style: none;
+
+			li {
+				width: 100%;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
 }
