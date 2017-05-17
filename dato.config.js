@@ -42,7 +42,7 @@ function writeNav(dir, dato) {
 function writeWork(dir, dato) {
 	let items = [];
 
-	dato.navInfos.forEach((item) => {
+	dato.works.forEach((item) => {
 		const el = item.toMap();
 
 		const content = {
@@ -62,28 +62,8 @@ function writeWork(dir, dato) {
 function writeInfo(dir, dato) {
   const about = dato.about.about;
   dir.createDataFile('about.json', 'json', about);
-  writeContact(dir, dato)
+
 };
-
-
-function writeContact(dir, dato) {
-	let items = [];
-
-	dato.contact.forEach((item) => {
-		const el = item.toMap();
-
-		const content = {
-			phone: el.phone,
-			email: el.email,
-			instagram: el.instagram,
-			twitter: el.twitter
-		};
-		items.push(content);
-	});
-
-	dir.createDataFile('contact.json', 'json', items);
-	writeInfo(dir, dato);
-}
 
 
 
