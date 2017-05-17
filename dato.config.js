@@ -1,27 +1,95 @@
-'use strict'
+'use strict';
+
+require('dotenv').load();
 
 // dato, allows you to get content coming from your administrative area;
 // root, represents the root of your project and makes it easy to create local files and directories;
 // i18n, is useful in multi-language sites to switch between the various available locales and get back translated content;
-const util = require('util');
-const fs = require('fs');
+
+
 module.exports = (dato, root, i18n) => {
 	root.directory("src/html/data", (dir) => {
-		writeExampleContent(dir,dato);
+		writeNav(dir,dato);
 	});
 };
 
-function writeExampleContent(dir,dato) {
-	let results = [];
-	dato.contentCollectionName.forEach((contentTypeName) => {
-		const el = contentTypeName.toMap();
+function writeNav(dir, dato) {
+	let items = [];
+
+	dato.navWorks.forEach((item) => {
+		const el = item.toMap();
 
 		const content = {
 			title: el.title,
-			text: el.text
+			url: el.url
 		};
-		results.push(content);
+		items.push(content);
+	});
+	dato.navInfos.forEach((item) => {
+		const el = item.toMap();
+
+		const content = {
+			title: el.title,
+			url: el.url
+		};
+		items.push(content);
 	});
 
-	dir.createDataFile('example_content.json', 'json', results);
+	dir.createDataFile('nav.json', 'json', items);
+	writeWork(dir, dato);
 }
+
+function writeWork(dir, dato) {
+	let items = [];
+
+	dato.navInfos.forEach((item) => {
+		const el = item.toMap();
+
+		const content = {
+			image: el.image,
+			subject: el.subject,
+			location: el.location,
+			publication: el.publication,
+			purpose: el.purpose
+		};
+		items.push(content);
+	});
+
+	dir.createDataFile('content.json', 'json', items);
+	writeInfo(dir, dato);
+}
+
+function writeInfo(dir, dato) {
+  const about = dato.about.about;
+  dir.createDataFile('about.json', 'json', about);
+  writeContact(dir, dato)
+};
+
+
+function writeContact(dir, dato) {
+	let items = [];
+
+	dato.contact.forEach((item) => {
+		const el = item.toMap();
+
+		const content = {
+			phone: el.phone,
+			email: el.email,
+			instagram: el.instagram,
+			twitter: el.twitter
+		};
+		items.push(content);
+	});
+
+	dir.createDataFile('contact.json', 'json', items);
+	writeInfo(dir, dato);
+}
+
+
+
+
+
+
+
+
+
