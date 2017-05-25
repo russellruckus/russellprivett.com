@@ -3,11 +3,12 @@
 {% block content %}
 <main>
 	<ul>
-		<li><img src="img/dave.jpg"></li>
-		<li><img src="img/oxford.jpg"></li>
-		<li><img src="img/rise.jpg"></li>
-		<li><img src="img/slipknot.jpg"></li>
-		<li><img src="img/weezer.jpg"></li>
+		{% set overview = r/^overview.*/g %}
+		{% for item in content %}
+			{% if overview.test(item.category) %}
+				{% include "partials/image-item.njk" %}
+			{% endif %}
+		{% endfor %}
 	</ul>
 </main>
 	

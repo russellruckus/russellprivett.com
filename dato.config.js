@@ -50,7 +50,8 @@ function writeWork(dir, dato) {
 			subject: el.subject,
 			location: el.location,
 			publication: el.publication,
-			purpose: el.purpose
+			purpose: el.purpose,
+			category: el.category
 		};
 		items.push(content);
 	});
@@ -64,12 +65,5 @@ function writeInfo(dir, dato) {
   dir.createDataFile('about.json', 'json', about);
 
 };
-
-
-
-
-
-
-
 
 
